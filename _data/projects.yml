@@ -9,6 +9,14 @@
       url: https://github.com/Electrum-RVN-SIG/electrum-ravencoin
     - name: Electrum Server
       url: https://github.com/Electrum-RVN-SIG/electrumx-ravencoin
+    - name: Electrum Client - maintained fork (v1.3.2)
+      url: https://github.com/ALENOC/electrum-ravencoin
+    - name: Electrum Client - maintained fork releases
+      url: https://github.com/ALENOC/electrum-ravencoin/releases
+    - name: Electrum Server - maintained fork (v1.13.13)
+      url: https://github.com/ALENOC/electrumx-ravencoin
+    - name: Electrum Server - maintained fork releases
+      url: https://github.com/ALENOC/electrumx-ravencoin/releases
     - name: Server and Protocol Documentation
       url: https://electrumx-ravencoin.readthedocs.io/en/latest/protocol-methods.html
   roadmap:
@@ -246,3 +254,79 @@
       url: https://t.me/+nkh3L2FvyehlMTQx
     - name: BTCtalk Announcement
       url: https://bitcointalk.org/index.php?topic=5478183.0
+
+- name: KawTrace
+  description: >
+    KawTrace is a serverless, all-in-one block and asset explorer for Ravencoin that runs entirely in the browser.
+    It lists blocks, transactions, addresses and Ravencoin assets, and connects to a Ravencoin RPC proxy, either the
+    public one it ships with or your own self-hosted endpoint.
+    The current release is a beta (v0.1.0-beta.3); mainnet operation has been verified, and mainnet and testnet
+    endpoints can be switched in the explorer settings.
+  project_sites:
+    - name: KawTrace Explorer
+      url: https://cerberuscx.github.io/KawTrace/
+    - name: KawTrace Source Code
+      url: https://github.com/cerberuscx/KawTrace
+
+- name: Raven Network Nodes
+  description: >
+    Raven Network Nodes is a dashboard that measures the Ravencoin peer-to-peer network with its own crawler
+    instead of relying on a third party API. It shows how many nodes are reachable, how they are distributed by
+    country and ISP, which client versions they run and how the count changes over time.
+    The raw measurement data is published as open JSON and CSV and needs no authentication.
+  project_sites:
+    - name: Node Distribution Dashboard
+      url: https://ravencoin-nodes.vercel.app
+    - name: Latest Measurement (JSON)
+      url: https://ravencoin-nodes.vercel.app/data/latest.json
+    - name: Measurement History (JSON)
+      url: https://ravencoin-nodes.vercel.app/data/history.json
+
+- name: RavenTag
+  description: >
+    RavenTag links NTAG 424 DNA NFC chips to Ravencoin asset tokens so that a physical item can be checked for
+    authenticity and, when the seller holds the linked token, for proof of ownership. The protocol is published as
+    RTP-1 and both the brand manager app and the consumer verification app are available for Android.
+    RavenTag is an independent community project and is not affiliated with the Ravencoin project.
+  project_sites:
+    - name: RavenTag
+      url: https://raventag.com
+    - name: RavenTag Source Code
+      url: https://github.com/ALENOC/RavenTag
+    - name: RavenTag Releases
+      url: https://github.com/ALENOC/RavenTag/releases/latest
+
+- name: Blackwing
+  description: >
+    Blackwing is a non-custodial, multi-chain asset platform covering Ravencoin and Kaspa.
+    It provisions a node inside your own DigitalOcean account, so the node, the keys and the assets stay under your
+    control, and adds self-custody wallets, asset issuance, a peer to peer marketplace, hold to earn distributions,
+    multisig vaults and solo mining on top of that node.
+    The service is in public beta and needs a server of your own.
+  project_sites:
+    - name: Blackwing
+      url: https://blackwing.software
+
+- name: Ravencoin Node Monitor
+  description: >
+    Ravencoin Node Monitor is an open source dashboard for a node you run yourself.
+    It shows Ravencoin Core and ElectrumX status, sync progress, peers, RPC response time and the bandwidth limits
+    you configure on your own machine.
+    The hosted page is a public demo that is not connected to a node, so the values marked as simulated there are
+    only there to show the layout. Run it against your own Core or ElectrumX instance to get real values.
+  project_sites:
+    - name: Source Code
+      url: https://github.com/ALENOC/ravencoin-node-monitor
+    - name: Public Demo
+      url: https://ravencoin-node-monitor.vercel.app
+
+- name: Ravencoin SDK
+  description: >
+    Ravencoin SDK is a developer toolkit for building applications on Ravencoin.
+    It gives access to addresses, transactions, assets, qualifiers, restricted assets and realtime blockchain events
+    without having to implement the Electrum protocol yourself, and ships with unit, integration and live tests
+    together with a CI workflow.
+    The project is in beta and is currently distributed as source code rather than as a published package.
+  project_sites:
+    - name: Ravencoin SDK Source Code
+      url: https://github.com/ALENOC/ravencoin-sdk

@@ -35,6 +35,8 @@ permalink: /wallet/
     <h2 class="">Electrum Community Wallet</h2>
     <a class="block mt-8 mb-6 text-lg bg-blue hover:bg-blue-dark rounded p-2 text-white" href="https://github.com/Electrum-RVN-SIG/Electrum-Ravencoin/releases"><i class="zmdi zmdi-github-alt"></i><span class="inline-block ml-3">Electrum-Ravencoin Releases (Downloadable Binaries)</span></a>
     <br>
+    <a class="block mt-8 mb-6 text-lg bg-blue hover:bg-blue-dark rounded p-2 text-white" href="https://github.com/ALENOC/electrum-ravencoin/releases"><i class="zmdi zmdi-github-alt"></i><span class="inline-block ml-3">Electrum-Ravencoin 1.3.2 (Maintained Build Releases)</span></a>
+    <br>
     <h2>3rd Party Wallets</h2>
     <div class="flex flex-wrap">
       {% for wallet in site.data.wallets %}

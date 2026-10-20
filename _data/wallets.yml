@@ -179,3 +179,14 @@
   platforms:
     - app-store-badge
     - google-play-badge
+
+- name: RavenVault
+  logo: /assets/img/pages/wallet/ravenvault.png
+  url: https://ravenvault.ex.erci.se/en/
+  asset-support: true
+  platforms:
+    - google-play-badge
+    - windows
+    - mac
+    - linux
+    - world-wide-web

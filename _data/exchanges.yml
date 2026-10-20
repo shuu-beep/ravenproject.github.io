@@ -34,12 +34,6 @@
   kyc: true
   donates_to_project: false
 
-- name: Bitvavo
-  logo: /assets/img/pages/exchanges/bitvavo.png
-  url: https://bitvavo.com/en/ravencoin
-  kyc: true
-  donates_to_project: false
-
 - name: ChangeAngel
   logo: /assets/img/pages/exchanges/changeangel.png
   url: https://changeangel.io/
@@ -80,12 +74,6 @@
   logo: /assets/img/pages/exchanges/coinswitch.png
   url: https://coinswitch.co
   kyc: false
-  donates_to_project: false
-
-- name: DEX Trade
-  logo: /assets/img/pages/exchanges/dextrade.png
-  url: https://dex-trade.com/spot/trading/RVNUSDT
-  kyc: true
   donates_to_project: false
 
 - name: Digifinex
@@ -142,9 +130,21 @@
   kyc: true
   donates_to_project: false
 
+- name: MEXC
+  logo: /assets/img/pages/exchanges/mexc.png
+  url: https://www.mexc.com/exchange/RVN_USDT
+  kyc: true
+  donates_to_project: false
+
 - name: Paribu
   logo: /assets/img/pages/exchanges/paribu.png
   url: https://www.paribu.com/?utm_source=ravencoin.org
+  kyc: true
+  donates_to_project: false
+
+- name: Pionex
+  logo: /assets/img/pages/exchanges/pionex.png
+  url: https://www.pionex.com/trade/RVN_USDT
   kyc: true
   donates_to_project: false
 
@@ -193,12 +193,6 @@
 - name: tZero
   logo: /assets/img/pages/exchanges/tzero.png
   url: https://www.tzero.com/
-  kyc: true
-  donates_to_project: false
-
-- name: Upbit
-  logo: /assets/img/pages/exchanges/upbit.png
-  url: https://upbit.com/exchange?code=CRIX.UPBIT.BTC-RVN
   kyc: true
   donates_to_project: false
 
