@@ -255,6 +255,21 @@
     - name: BTCtalk Announcement
       url: https://bitcointalk.org/index.php?topic=5478183.0
 
+- name: ChainStrap
+  description: >
+    ChainStrap publishes compressed snapshots of raw Ravencoin chain data to IPFS so that a new node can
+    reach its current height in hours instead of days. A single Python script downloads the snapshot and
+    unpacks it into the block and chainstate folders of your Ravencoin Core data directory.
+    The snapshot only shortens the initial download: Ravencoin Core still checks every block header,
+    proof of work and transaction itself, so the chain is verified exactly as it normally would be.
+  project_sites:
+    - name: ChainStrap
+      url: https://chainstrap.com
+    - name: ChainStrap Source Code
+      url: https://github.com/chainstrap/chainstrap.github.io
+    - name: getchain.py Bootstrap Script
+      url: https://chainstrap.com/getchain.py
+
 - name: KawTrace
   description: >
     KawTrace is a serverless, all-in-one block and asset explorer for Ravencoin that runs entirely in the browser.
