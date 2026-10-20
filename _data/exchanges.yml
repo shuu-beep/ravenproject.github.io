@@ -6,7 +6,7 @@
 
 - name: BC Bitcoin
   logo: /assets/img/pages/exchanges/bcbitcoin.png
-  url: https://www.bcbitcoin.co.uk/buy/?coin=RVN
+  url: https://www.bcbitcoin.co.uk/
   kyc: false
   donates_to_project: false
 
@@ -14,12 +14,6 @@
   logo: /assets/img/pages/exchanges/bitladon.png
   url: https://www.bitladon.com/ravencoin
   kyc: true
-  donates_to_project: false
-
-- name: Bitni
-  logo: /assets/img/pages/exchanges/bitni.png
-  url: https://bitni.com/swap/rvn/btc
-  kyc: false
   donates_to_project: false
 
 - name: Bitrue
@@ -108,7 +102,7 @@
 
 - name: Evorese
   logo: /assets/img/pages/exchanges/evorese.png
-  url: https://exchange.evorese.com/market/BIRAKE.RVN_BIRAKE.BTC
+  url: https://www.evorese.com/
   kyc: false
   donates_to_project: false
 
@@ -142,9 +136,9 @@
   kyc: true
   donates_to_project: false
 
-- name: OKEx
+- name: OKX
   logo: /assets/img/pages/exchanges/okex.png
-  url: https://www.okex.com/en/markets/spot/rvn_btc
+  url: https://www.okx.com/en/trade-spot/rvn-usdt
   kyc: true
   donates_to_project: false
 
@@ -156,7 +150,7 @@
 
 - name: ProBit
   logo: /assets/img/pages/exchanges/probit.png
-  url: https://www.probit.com/app/exchange/RVN-USDT
+  url: https://www.probit.com/exchange/RVN-USDT
   kyc: true
   donates_to_project: false
 
@@ -205,12 +199,6 @@
 - name: Upbit
   logo: /assets/img/pages/exchanges/upbit.png
   url: https://upbit.com/exchange?code=CRIX.UPBIT.BTC-RVN
-  kyc: true
-  donates_to_project: false
-
-- name: UnicornX
-  logo: /assets/img/pages/exchanges/UnicornX.png
-  url: https://www.unicornx.exchange/markets/spot-info/rvn-usdt
   kyc: true
   donates_to_project: false
 

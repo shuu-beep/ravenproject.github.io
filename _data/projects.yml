@@ -1,37 +1,3 @@
-- name: RavencoinHelper OS
-  description: >
-    RavencoinHelperOS is an Operating System framework for everything Ravencoin.
-    A foundation of services that are focused upon the Ravencoin Blockchain.
-    Its intent is to consolidate everything about Ravencoin,
-    and to present it all, to the user for easy access!
-  project_sites:
-    - name: RavencoinHelper OS
-      url: https://ravencoinhelper.com
-  roadmap:
-    - name: Research & Implement a stable, flexible Operating System across many platforms
-      value: complete
-    - name: Created programs to enhance underlining OS for better functioning of Ravencoin Node and IPFS
-      value: complete
-    - name: Creating Options for more flexibility of IPFS
-      value: complete
-    - name: Creating Wiki of all things Ravencoin
-      value: complete
-    - name: Creating web download package for Windows, OSX and Raspberry Pi
-      value: complete
-    - name: Creating web application for easy (Manual) downloading of NFTs, with Verification & Viewer
-      value: testing
-    - name: Creating application download and install function for Ravencoin projects.
-      value: testing
-    - name: Creating a Token function that allows the user to receive continual Tokens based upon the accumulated time RavencoinHelper is maintained.
-      value: testing
-    - name: Creating a website listing and Wiki listing of Ravencoin focused products and services that can be purchased with RavencoinHelper Tokens.
-      value: upcoming
-    - name: Creating Github Repository
-      value: upcoming
-  social:
-    - name: RavencoinHelper OS
-      url: https://twitter.com/technobuddha
-
 - name: Electrum Ravencoin
   description: >
     The Electrum Ravencoin wallet is meant to be a light weight wallet for users who are unable or unwilling
@@ -86,7 +52,7 @@
     - name: RavenTraderPro - Desktop Client (python)
       url: https://github.com/ben-abraham/raven-trader-pro
     - name: RavenTrader - Server (C#)
-      url: https://github.com/ben-abraham/raven-trader
+      url: https://github.com/ben-abraham/raven-trader-server
     - name: Core Wallet - Atomic Swap PR
       url: https://github.com/RavenProject/Ravencoin/pull/1083
   roadmap:
@@ -133,9 +99,9 @@
     - name: RVNFT
       url: https://www.rvnft.art/
     - name: RVNFT Marketplace
-      url: https://www.rvnft.art/nft-marketplace/
+      url: https://www.rvnft.art/
     - name: RVNFT Gallery
-      url: https://www.rvnft.art/rvn-nft-gallery/
+      url: https://www.rvnft.art/
     - name: RVNBAY/RVNFT
       url: https://rvnbay.com/category/rvnft/
   social:
@@ -145,8 +111,6 @@
       url: https://twitter.com/RVNFT_ART
     - name: RVNFT Instagram
       url: https://www.instagram.com/rvnft.art/
-    - name: Find RVNFT NFTs on Raven Trader
-      url: https://raventrader.net/
 
 - name: SYNTH
   description: >
@@ -163,7 +127,7 @@
     - name: rvnBay
       url: https://rvnbay.com
     - name: GradeSynth IPFS Gateway
-      url: https://gradesynth.com/ipfs/QmPJeUzChXMSfe3uoXxLTqWP2MR8u1CdFuurUZXRvjed9U/
+      url: https://gradesynth.com/
 
   social:
     - name: SYNTH Discord
@@ -253,9 +217,9 @@
  
   project_sites:
     - name: NOWNodes Set Up 
-      url: http://bit.do/nownodes-setup
+      url: https://nownodes.io/
     - name: NOWNodes Documentation
-      url: https://documenter.getpostman.com/view/13630829/TVmFkLwy
+      url: https://docs.nownodes.io/rvn/
   
   social:
     - name: Support
