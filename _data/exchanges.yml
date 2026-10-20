@@ -10,6 +10,17 @@
   kyc: false
   donates_to_project: false
 
+- name: Binance
+  logo: /assets/img/pages/exchanges/binance.png
+  url: https://www.binance.com/en/trade/RVN_BTC
+  kyc: true
+  donates_to_project: false
+
+- name: Binance US
+  url: https://www.binance.us/trade/pro/RVN_USDT
+  kyc: true
+  donates_to_project: false
+
 - name: Bitladon
   logo: /assets/img/pages/exchanges/bitladon.png
   url: https://www.bitladon.com/ravencoin
@@ -22,15 +33,24 @@
   kyc: true
   donates_to_project: false
 
-- name: Binance
-  logo: /assets/img/pages/exchanges/binance.png
-  url: https://www.binance.com/en/trade/RVN_BTC
+- name: Bittime
+  url: https://www.bittime.com/en/trade/rvn-idr
   kyc: true
   donates_to_project: false
 
 - name: Bittrex
   logo: /assets/img/pages/exchanges/bittrex.png
   url: https://bittrex.com/Market/Index?MarketName=BTC-RVN
+  kyc: true
+  donates_to_project: false
+
+- name: Bybit
+  url: https://www.bybit.com/trade/spot/RVN/USDT
+  kyc: true
+  donates_to_project: false
+
+- name: BYDFi
+  url: https://www.bydfi.com/exchange/RVN_USDT
   kyc: true
   donates_to_project: false
 
@@ -76,6 +96,11 @@
   kyc: false
   donates_to_project: false
 
+- name: Crypto.com Exchange
+  url: https://crypto.com/exchange/trade/spot/RVN_USD
+  kyc: true
+  donates_to_project: false
+
 - name: Digifinex
   logo: /assets/img/pages/exchanges/digifinex.png
   url: https://www.digifinex.com/en-ww/trade/BTC/RVN
@@ -98,6 +123,17 @@
   logo: /assets/img/pages/exchanges/exolix.png
   url: https://exolix.com/exchange/BTC-RVN
   kyc: false
+  donates_to_project: false
+
+- name: FLASHIFT
+  logo: /assets/img/pages/exchanges/flashift.png
+  url:  https://flashift.app/
+  kyc: false
+  donates_to_project: false
+
+- name: Gate
+  url: https://www.gate.com/trade/RVN_USDT
+  kyc: true
   donates_to_project: false
 
 - name: Graviex
@@ -124,15 +160,31 @@
   kyc: true
   donates_to_project: false
 
-- name: OKX
-  logo: /assets/img/pages/exchanges/okex.png
-  url: https://www.okx.com/en/trade-spot/rvn-usdt
+- name: LATOKEN
+  url: https://latoken.com/exchange/USDT-RVN
+  kyc: true
+  donates_to_project: false
+
+- name: LBank
+  url: https://www.lbank.com/trade/rvn_usdt
   kyc: true
   donates_to_project: false
 
 - name: MEXC
   logo: /assets/img/pages/exchanges/mexc.png
   url: https://www.mexc.com/exchange/RVN_USDT
+  kyc: true
+  donates_to_project: false
+
+- name: NOWPayments
+  logo: /assets/img/pages/exchanges/nowpayments.png
+  url: https://nowpayments.io/
+  kyc: false
+  donates_to_project: false
+
+- name: OKX
+  logo: /assets/img/pages/exchanges/okex.png
+  url: https://www.okx.com/en/trade-spot/rvn-usdt
   kyc: true
   donates_to_project: false
 
@@ -190,20 +242,34 @@
   kyc: false
   donates_to_project: false
 
+- name: TokoCrypto
+  url: https://www.tokocrypto.com/trade/RVNUSDT
+  kyc: true
+  donates_to_project: false
+
 - name: tZero
   logo: /assets/img/pages/exchanges/tzero.png
   url: https://www.tzero.com/
   kyc: true
   donates_to_project: false
 
-- name: NOWPayments
-  logo: /assets/img/pages/exchanges/nowpayments.png
-  url: https://nowpayments.io/
-  kyc: false
+- name: WEEX
+  url: https://www.weex.com/spot/RVN-USDT
+  kyc: true
   donates_to_project: false
 
-- name: FLASHIFT
-  logo: /assets/img/pages/exchanges/flashift.png
-  url:  https://flashift.app/
-  kyc: false
+- name: WhiteBIT
+  url: https://whitebit.com/trade/RVN_USDT
+  kyc: true
   donates_to_project: false
+
+- name: XT.COM
+  url: https://www.xt.com/en/trade/rvn_usdt
+  kyc: true
+  donates_to_project: false
+
+- name: ZebPay
+  url: https://www.zebpay.com/exchange/RVN-INR
+  kyc: true
+  donates_to_project: false
+

@@ -12,9 +12,9 @@ permalink: /buy-ravencoin/
     <div class="flex flex-wrap">
       {% for exchange in site.data.exchanges %}
             {% if exchange.kyc == false %}
-                <div class="mb-6 px-2 sm:w-1/2 md:w-1/3 text-center">
-                  <div class="bg-grey-lighter max-w-sm rounded overflow-hidden shadow-md hover:by-grey">
-                    <a class="block px-6 py-8" href="{{ exchange.url }}" target="_blank"><img src="{{ exchange.logo }}" alt="{{ exchange.name }} exchange"/></a>
+                <div class="mb-6 px-2 w-full sm:w-1/2 md:w-1/3 text-center">
+                  <div class="bg-grey-lighter w-full max-w-sm rounded overflow-hidden shadow-md hover:by-grey">
+                    <a class="block px-6 py-8" href="{{ exchange.url }}" target="_blank">{% if exchange.logo %}<img src="{{ exchange.logo }}" alt="{{ exchange.name }} exchange"/>{% else %}<span class="text-xl font-bold flex items-center justify-center" style="min-height:112px">{{ exchange.name }}</span>{% endif %}</a>
                   </div>
                   {% if exchange.donates_to_project == true %}
                     <span><i class="zmdi zmdi-balance"></i> &nbsp; Donates to foundation</span>
@@ -28,9 +28,9 @@ permalink: /buy-ravencoin/
     <div class="flex flex-wrap">
       {% for exchange in site.data.exchanges %}
         {% if exchange.kyc %}
-          <div class="mb-6 px-2 sm:w-1/2 md:w-1/3 text-center">
-            <div class="bg-grey-lighter max-w-sm rounded overflow-hidden shadow-md hover:by-grey">
-              <a class="block px-6 py-8" href="{{ exchange.url }}" target="_blank"><img src="{{ exchange.logo }}" alt="{{ exchange.name }} exchange"/></a>
+          <div class="mb-6 px-2 w-full sm:w-1/2 md:w-1/3 text-center">
+            <div class="bg-grey-lighter w-full max-w-sm rounded overflow-hidden shadow-md hover:by-grey">
+              <a class="block px-6 py-8" href="{{ exchange.url }}" target="_blank">{% if exchange.logo %}<img src="{{ exchange.logo }}" alt="{{ exchange.name }} exchange"/>{% else %}<span class="text-xl font-bold flex items-center justify-center" style="min-height:112px">{{ exchange.name }}</span>{% endif %}</a>
             </div>
                   {% if exchange.donates_to_project == true %}
                     <span><i class="zmdi zmdi-balance"></i> &nbsp; Donates to foundation</span>

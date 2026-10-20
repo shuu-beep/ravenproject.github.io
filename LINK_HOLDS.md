@@ -4,6 +4,22 @@ Items identified by the ravencoin.org link audit (1,214 link instances across 91
 exchange and new-service verification pass that followed it, which were **not** changed in this work.
 They are kept as-is deliberately and are listed here so they can be revisited later.
 
+## 0. Exchange list accounting
+
+The exchange list was checked three times against the official APIs, the exchange websites and the
+CoinGecko RVN ticker list. These are the actual counts, item by item:
+
+| Stage | Exchanges |
+|---|---|
+| `af93e6a` (before this work) | 38 |
+| `2a7ce6d` (link cleanup) | 36 — removed Bitni and UnicornX, renamed OKEx to OKX |
+| `7c6adb9` (exchange verification) | 35 — removed Bitvavo, DEX Trade and Upbit, added MEXC and Pionex |
+| current branch | 48 — added 13 more venues that were confirmed to trade RVN spot |
+
+Across the whole branch 5 exchanges were removed and 15 were added, so the list went from 38 to 48.
+24 exchanges are still on hold because their RVN support could not be confirmed: 19 in section 4 and
+5 in section 5.
+
 ## 1. Server errors — service may only be temporarily unavailable
 
 These URLs responded with 5xx / Cloudflare errors during the audit. A transient server error is not
@@ -63,33 +79,57 @@ verification host. They should be re-checked from an unblocked network before an
 | BC Bitcoin (now BCXPro Malta) | `bcbitcoin.co.uk` redirects to `bcxpro.io`, whose market pages are client side rendered; no RVN market could be confirmed. |
 | Bitladon | Every request is answered with a Cloudflare challenge (403). |
 | Bittrex | `api.bittrex.com` does not resolve from the verification host and no RVN market appears in the CoinGecko ticker list. |
-| ChangeHero, SwapSpace, SwapSwop | Every request is answered with a Cloudflare challenge (403). |
-| CoinoSwap, CoinSwitch, SimpleSwap, StealthEX, Swapzone | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
+| ChangeHero | Every request is answered with a Cloudflare challenge (403). |
+| CoinSwitch | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
+| CoinoSwap | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
 | Evorese | The market pages are client side rendered and no public API is exposed; the old `exchange.evorese.com/market/...` path returns 404. |
 | Exolix | The public API paths return 404 or a Cloudflare challenge; only the exchange page loads. |
 | Graviex | The site returns 522 (also listed in section 1) and the API returns 403. |
 | NOWPayments | This is a payment gateway rather than an exchange, and the coin list is not reachable. |
 | ProBit | Every API request is answered with a Cloudflare challenge (403); no RVN market appears in the CoinGecko ticker list. |
 | Qortal | Qortal runs its own chain and token, and no RVN market was found on its market page. |
+| SimpleSwap | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
+| StealthEX | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
+| SwapSpace | Every request is answered with a Cloudflare challenge (403). |
+| SwapSwop | Every request is answered with a Cloudflare challenge (403). |
+| Swapzone | The coin list is only available through an API that could not be reached, and the pages are client side rendered. |
 | tZero | The market pages are client side rendered; no RVN market was confirmed and none appears in the CoinGecko ticker list. |
 
-## 5. RVN venues that were verified but not listed yet
+19 exchanges are listed in this section. None of them was removed, because their RVN support could
+not be decided either way from the verification host.
 
-These venues currently trade RVN, but the exchange card on the buying guide expects a 450x150
-brand banner, and no matching official banner asset could be retrieved for them. Adding them needs
-the logo file, so they are recorded here instead of being listed with a broken image.
+## 5. RVN venues found during the venue sweep
 
-| Venue | RVN market |
+17 venues were confirmed by the CoinGecko RVN ticker list as trading RVN spot. 13 of them could
+also be confirmed on their own site or public API and are now listed on the buying guide. The
+exchange card falls back to the exchange name when there is no banner logo, so a missing logo is no
+longer a reason to leave a working venue out.
+
+| Venue | RVN market | Evidence |
+|---|---|---|
+| Binance US | `https://www.binance.us/trade/pro/RVN_USDT` | `api.binance.us/api/v3/exchangeInfo?symbol=RVNUSDT` returns the symbol |
+| Bittime | `https://www.bittime.com/en/trade/rvn-idr` | market page returns the RVN/IDR pair |
+| BYDFi | `https://www.bydfi.com/exchange/RVN_USDT` | market page title "Trade RVN/USDT RavenCoin on BYDFi Exchange" |
+| Bybit | `https://www.bybit.com/trade/spot/RVN/USDT` | `api.bybit.com/v5/market/instruments-info` returns RVNUSDT |
+| Crypto.com Exchange | `https://crypto.com/exchange/trade/spot/RVN_USD` | `api.crypto.com/v2/public/get-ticker?instrument_name=RVN_USD` returns the ticker |
+| Gate | `https://www.gate.com/trade/RVN_USDT` | `api.gateio.ws/api/v4/spot/currency_pairs` lists RVN_USDT |
+| LATOKEN | `https://latoken.com/exchange/USDT-RVN` | `api.latoken.com/v2/ticker?symbol=RVN/USDT` returns the ticker |
+| LBank | `https://www.lbank.com/trade/rvn_usdt` | `api.lbkex.com/v2/currencyPairs.do` lists rvn_usdt |
+| TokoCrypto | `https://www.tokocrypto.com/trade/RVNUSDT` | market page returns the RVNUSDT pair |
+| WEEX | `https://www.weex.com/spot/RVN-USDT` | market page title "Trade RVN/USDT spot" |
+| WhiteBIT | `https://whitebit.com/trade/RVN_USDT` | `whitebit.com/api/v4/public/ticker` lists RVN_USDT |
+| XT.COM | `https://www.xt.com/en/trade/rvn_usdt` | market page title "RVN USDT | RVNUSDT Charts & Trade Info" |
+| ZebPay | `https://www.zebpay.com/exchange/RVN-INR` | market page returns the RVN-INR pair |
+
+The remaining 5 venues could not be confirmed on their own site and stay unlisted:
+
+| Venue | Why it is still on hold |
 |---|---|
-| Bybit | `https://www.bybit.com/en/trade/spot/RVNUSDT` |
-| WhiteBIT | `https://whitebit.com/trade/RVN_USDT` |
-| Gate.io | `https://www.gate.io/trade/RVN_USDT` |
-| Binance US | `https://www.binance.us/en/trade/RVN_USDT` |
-| LBank | `https://www.lbank.com/trade/RVN_USDT` |
-| LATOKEN | `https://latoken.com/trade/RVN-USDT` |
-| TokoCrypto | `https://www.tokocrypto.com/en/trade/RVN_USDT` |
-| XT.COM | `https://www.xt.com/en/trade/RVN_USDT` |
-| CoinUp.io, Mudrex, Nonkyc.io, CoinW, Bittime, SafeTrade, BYDFi, WEEX, ZebPay | Listed by the CoinGecko RVN ticker list, but their market URLs could not be confirmed from the verification host. |
+| CoinUp.io | Every request to the site and to `api.coinup.io` is answered with a Cloudflare challenge (403), so the market could not be confirmed first party. |
+| Mudrex | The site and `api.mudrex.com` are not reachable from the verification host. |
+| Nonkyc.io | The site and the public API are not reachable from the verification host. |
+| CoinW | `www.coinw.com` does not respond from the verification host. |
+| SafeTrade | The site and `api.safetrade.com` are answered with a Cloudflare challenge (403). |
 
 Binance delisted RVN for residents of Brazil from 27 October 2026. The global Binance markets are
 still live and were kept.
