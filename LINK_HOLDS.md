@@ -16,12 +16,17 @@ item by item:
 | `2a7ce6d` (link cleanup) | 36 — removed Bitni and UnicornX, renamed OKEx to OKX |
 | `7c6adb9` (exchange verification) | 35 — removed Bitvavo, DEX Trade and Upbit, added MEXC and Pionex |
 | `5c08b79` (venue sweep) | 48 — added 13 venues that were confirmed to trade RVN spot |
-| current branch | **32** — 27 spot exchanges and 5 instant swap services |
+| `bbb1cdb` (buying guide rework) | **32** — 27 spot exchanges and 5 instant swap services |
+| current branch | **31** — 27 spot exchanges and 4 instant swap services |
 
 The last step removed 19 entries from the active list and added 3. None of the removals is a
 statement that the venue closed down permanently: 6 were removed because RVN trading could not be
 confirmed, and 13 were removed because they could not be verified from the audit host. All 19 are
 listed in sections 3 and 4 with the reason and with what would have to change to add them back.
+
+Exolix was removed afterwards. Its complete currency inventory (514 currencies, read through the
+paginated `api/v2/currencies` endpoint) contains neither `RVN` nor `RAVEN`, so there is no RVN
+market to send visitors to. It is listed in section 3.
 
 ## 1. Server errors — service may only be temporarily unavailable
 
@@ -31,7 +36,7 @@ evidence that a service is gone, so the links were left untouched. Re-check befo
 | # | URL | Observed status | Location |
 |---|---|---|---|
 | E1 | `https://squawker.app` | 500 | `_data/projects.yml` |
-| E2 | `https://rvnbay.com`, `https://rvnbay.com/category/rvnft/` | 525 (Cloudflare) | `_data/projects.yml`, `_pages/assets.md` |
+| E2 | `https://rvnbay.com` | 525 (Cloudflare) | `_data/projects.yml`, `_pages/assets.md` |
 | E3 | `https://graviex.net/markets/rvnbtc` | 522 | removed from `_data/exchanges.yml`, see section 4 |
 | E4 | `https://pool.wallstreetv2.com/` | 522 | `_data/pools.yml` |
 | E5 | `https://ravencoin.flypool.org/` | 522 | `_data/pools.yml` |
@@ -41,6 +46,7 @@ evidence that a service is gone, so the links were left untouched. Re-check befo
 | E9 | `https://explorer.ravencoin.org/block/0000000000004a7a699167d242dad3e18271cb9b75fdab9fe749291d9c59305d` | 522 | `_pages/halving.md` |
 | E10 | `https://raven-nightly-builds.ravencoin.org` | 522 | `_pages/wcc.md` |
 | E11 | `https://api.ravencoin.org` | 522 | `mobilewallet/support/Troubleshooting/Ravencoin-missing.html` |
+| E12 | `https://jackdawtoken.com/` | 409 over plain HTTP, no TLS handshake on 443 | `_data/projects.yml` (Jackdaw Cryptocurrency) — the domain still resolves to Cloudflare, so the origin is refusing requests. The links were left as they are; re-check before changing. |
 
 ## 2. Working links that were left alone
 
@@ -53,12 +59,23 @@ evidence that a service is gone, so the links were left untouched. Re-check befo
 | Trailing-slash differences (`/halving`, `/wallet`, `/community`, `/devupdates`) | GitHub Pages redirects these automatically; they resolve. |
 | `https://travis-ci.org/RavenProject/Ravencoin.svg?branch=master` (`README.md`) | Travis CI is shut down, but `RavenProject/Ravencoin` has only one workflow (`build-raven.yml`), which triggers on `release*` pushes and PRs and has a single historical run with an `action_required` conclusion. Its badge renders "no status" permanently, so it is not a valid replacement yet. Keep the badge until the Ravencoin repository has a workflow that runs on `master`. |
 | `https://www.kisspng.com/png-watercolor-crow-6713/` (`_pages/attribution.md`) | The line is inside an HTML comment and is not rendered; the crow image is not used anywhere in the repository, and no valid replacement image page exists on the new host (cleanpng.com). Left as-is. |
+| Vercel-hosted links (`https://raventag.com`, `https://ravencoin-node-monitor.vercel.app`) | Both answer 403 to a browser user agent and 200 to a plain request from the audit host. This is not a fault of the deployments: from the same machine `vercel.com`, `nextjs.org` and `react.dev` all answer 403 the same way, so Vercel blocks the auditing IP for browser-like requests. `raventag.com` serves its real site ("RavenTag: Trustless NFC Authentication on Ravencoin") over a plain request, so it works for real visitors and was left alone. |
 
 Note on verification: `https://www.ravennodes.com/` and `https://www.rvnft.art/` both responded normally
 during the audit (302 -> 200 and 200 respectively), but stopped answering HTTPS requests from the
 verification host afterwards — TCP on port 443 still succeeds, so this looks like server-side
 throttling of the auditing IP rather than a broken link. Both URLs are the canonical addresses of
 their services and were kept.
+
+This turned out to be wrong on a later, independent check. `ravennodes.com` no longer serves the
+node map and `rvnft.art` is a parked domain (a `*.name.tools` certificate serving a "Server Test
+Page"), so both were replaced. See section 7.
+
+The same applies to `https://rvnbay.com`, which is listed in `_data/projects.yml` and in
+`_pages/assets.md`: it answers 525 (Cloudflare, origin unreachable) on every attempt, including
+through `www.rvnbay.com`. The domain still resolves in DNS to Cloudflare addresses, so this is an
+origin-side outage rather than a dead domain. The links were kept, because the address is the
+project's own and there is no alternative to point them at.
 
 ## 3. Services that were removed because RVN trading could not be confirmed
 
@@ -78,6 +95,7 @@ means RVN could not be traded there any more, or could not be verified at all.
 | FLASHIFT | `_data/exchanges.yml` entry | No RVN mention anywhere on the site, the market page returns 404, and neither aggregator lists RVN for it. |
 | NOWPayments | `_data/exchanges.yml` entry | This is a payment gateway rather than an exchange, and no RVN market was found for it. |
 | ChangeAngel | `_data/exchanges.yml` entry | The site answers with a "Coming Back" placeholder, so the exchange is currently paused and cannot be presented as an active venue. Add it back if the service is relaunched with RVN support. |
+| Exolix | `_data/exchanges.yml` entry | The complete currency inventory was read through the paginated `api/v2/currencies` endpoint: 514 currencies, and neither `RVN` nor `RAVEN` is among them. The service itself is healthy, it simply does not trade RVN any more. Add it back if RVN reappears in that list. |
 
 ## 4. Exchanges removed from the active list because they could not be verified
 
@@ -168,7 +186,7 @@ file or page and can be deleted whenever convenient:
 - `assets/img/pages/exchanges/nowpayments.png`
 - `assets/img/pages/exchanges/probit.png`
 - `assets/img/pages/exchanges/qortal.png`
-- `assets/img/pages/exchanges/simpleSwap.png`
+- `assets/img/pages/exchanges/simpleswap.png`
 - `assets/img/pages/exchanges/stealthex.png`
 - `assets/img/pages/exchanges/swapspace.png`
 - `assets/img/pages/exchanges/swapswop.png`
@@ -180,3 +198,28 @@ file or page and can be deleted whenever convenient:
 The following three were already unused before this work and are only listed for completeness:
 `assets/img/pages/exchanges/coinexchange.png`, `assets/img/pages/wallet/flare.png`,
 `assets/img/pages/wallet/spend.png`.
+
+## 7. Links replaced or removed in the follow-up review
+
+These four items were raised after the audit above was finished and have now been dealt with. They
+are recorded here so the reasoning stays with the rest of the link history.
+
+| Item | What was done | Evidence |
+|---|---|---|
+| Exolix in the buying guide | The `_data/exchanges.yml` entry and the `exolix.png` logo were removed. The exchange is listed in section 3 instead. | The complete currency inventory, read page by page through `api/v2/currencies?limit=25&page=N`, contains 514 currencies and neither `RVN` nor `RAVEN`. There is no RVN market on the venue. |
+| `ravennodes.com` | Every link to `https://www.ravennodes.com/` was replaced with `https://rusiper1000.github.io/Ravencoin-Nodes/`. This affects `_includes/footer.html` and `_pages/community.md`. The three `Raven Network Nodes` links in `_data/projects.yml` were changed to the same host. | `www.ravennodes.com` no longer serves the node map. The replacement serves the same dashboard and the same live measurement data (`data/latest.json`, `data/history.json`). |
+| RVNFT | The whole `_data/projects.yml` entry was removed, together with the RVNFT link in `_pages/assets.md`. | `rvnft.art` is a parked domain: the certificate is issued for `*.name.tools` and the page is a "Server Test Page". The Discord invite `ZSqqS5Gr` answers `Unknown Invite`, and `rvnft.com` redirects to a parked lander. No trustworthy active replacement was found, so the entry was removed rather than pointed at an unverified service. RVNBay is still listed as an asset market in `_pages/assets.md`. |
+| `simpleSwap.png` | The file name in the unused-asset list was corrected to `simpleswap.png`. | The tracked file is `assets/img/pages/exchanges/simpleswap.png`; a case-sensitive comparison of every referenced `/assets/...` path against the tracked files now reports no mismatches. On a case-insensitive file system the wrong casing would not have been noticed. |
+
+Note on the node map host: `ravencoin-nodes.vercel.app` serves the same dashboard and the same
+JSON data, but it answers **403 Forbidden** to a normal Chrome browser user agent while answering
+200 to curl. That is not a fault of the deployment: from the same machine `vercel.com`,
+`nextjs.org` and `react.dev` all answer 403 the same way, so Vercel blocks this host's IP for
+browser-like requests. The GitHub Pages host was used instead because it answers 200 to every
+request, and because it is the canonical address the project declares — the `og:url` meta tag of
+the dashboard reads `https://rusiper1000.github.io/Ravencoin-Nodes/` on both hosts.
+
+The same rule was applied to the "Ravencoin Node Monitor" entry, whose public demo is a Vercel
+deployment (`ravencoin-node-monitor.vercel.app`) and has no GitHub Pages alternative — the
+repository `ALENOC/ravencoin-node-monitor` has Pages disabled. That link was left as it is, because
+it is not broken for real visitors.

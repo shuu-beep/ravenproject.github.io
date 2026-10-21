@@ -69,7 +69,7 @@ Overall: **61 files changed, 497 insertions(+), 328 deletions(-)** (57 modified,
 
 | File | Purpose |
 |---|---|
-| `LINK_HOLDS.md` | Every deferred item: server errors, links intentionally left alone, removed services, the 19 exchanges removed from the active list, the venues still on hold and the venues checked and deliberately not added. |
+| `LINK_HOLDS.md` | Every deferred item: server errors, links intentionally left alone, removed services, the 20 exchanges removed from the active list, the venues still on hold and the venues checked and deliberately not added. |
 | `assets/img/pages/exchanges/mexc.png` | Official MEXC brand banner, cropped to the site convention (450×150). |
 | `assets/img/pages/exchanges/pionex.png` | Official Pionex brand banner, cropped to the site convention (450×150). |
 | `assets/img/pages/wallet/ravenvault.png` | Official RavenVault app icon, 450×450 (the site already had one square wallet logo, `mango-farm-logo.png`). |
@@ -98,7 +98,10 @@ Mobile wallet support (45 files, all under `mobilewallet/support/`):
 | UnicornX | `_data/exchanges.yml` | `unicornx.exchange` domain expired, same parking page. |
 | SimpleHold | `_data/wallets.yml` | Service discontinued; the domain answers with Cloudflare error 1000 ("DNS points to prohibited IP"). |
 | RavencoinHelper OS | `_data/projects.yml` | `ravencoinhelper.com` no longer resolves in DNS. |
-| Raven Trader social link | `_data/projects.yml` (RVNFT entry) | `raventrader.net` no longer resolves in DNS. |
+| Raven Trader social link | `_data/projects.yml` (RVNFT entry) | `raventrader.net` no longer resolves in DNS. The RVNFT entry itself was removed later, see `LINK_HOLDS.md` section 7. |
+| RVNFT project entry and its social links | `_data/projects.yml`, `_pages/assets.md` | `rvnft.art` is a parked domain (a `*.name.tools` certificate serving a "Server Test Page"), its Discord invite is invalid and no trustworthy active replacement was found. See `LINK_HOLDS.md` section 7. |
+| Exolix exchange entry and logo | `_data/exchanges.yml`, `assets/img/pages/exchanges/exolix.png` | The complete currency inventory (514 currencies) contains neither `RVN` nor `RAVEN`, so the venue has no RVN market. See `LINK_HOLDS.md` section 7. |
+| Ravencoin Node Map links | `_includes/footer.html`, `_pages/community.md`, `_data/projects.yml` | `www.ravennodes.com` no longer serves the node map. Repointed to `https://rusiper1000.github.io/Ravencoin-Nodes/`. See `LINK_HOLDS.md` section 7. |
 | Testnet faucet entry and "How to use the faucet?" section | `_pages/wcc.md` | `testnet.ravencoin.network` no longer resolves; no replacement faucet was found. |
 | GetRavencoin.org card | `_pages/community.md` | `getravencoin.org` has no A record. |
 | Raven Trader sentence | `_pages/assets.md` | `raventrader.net` dead. The RIP-15 reference was kept and now describes the process directly. |
@@ -144,15 +147,15 @@ Mobile wallet support (45 files, all under `mobilewallet/support/`):
 | `_data/wallets.yml` (Exodus) | `https://www.exodus.io/download/` | `https://www.exodus.com/download/` |
 | `_data/wallets.yml` (tZERO) | `https://www.tzero.com/crypto` | `https://www.tzero.com/` |
 | `_data/projects.yml` (RavenTrader Server) | `https://github.com/ben-abraham/raven-trader` | `https://github.com/ben-abraham/raven-trader-server` |
-| `_data/projects.yml` (RVNFT) | `https://www.rvnft.art/nft-marketplace/`, `https://www.rvnft.art/rvn-nft-gallery/` | `https://www.rvnft.art/` (both deep paths returned 404) |
+| `_data/projects.yml` (RVNFT) | `https://www.rvnft.art/nft-marketplace/`, `https://www.rvnft.art/rvn-nft-gallery/` | `https://www.rvnft.art/` (both deep paths returned 404) — the entry was later removed entirely, see `LINK_HOLDS.md` section 7 |
 | `_data/projects.yml` (SYNTH) | `https://gradesynth.com/ipfs/QmPJeUzChXMSfe3uoXxLTqWP2MR8u1CdFuurUZXRvjed9U/` | `https://gradesynth.com/` (the IPFS gateway path 404s) |
 | `_data/projects.yml` (NOWNodes) | `http://bit.do/nownodes-setup` | `https://nownodes.io/` |
 | `_data/projects.yml` (NOWNodes) | `https://documenter.getpostman.com/view/13630829/TVmFkLwy` | `https://docs.nownodes.io/rvn/` |
-| `_includes/footer.html` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` |
+| `_includes/footer.html` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` — replaced again later with `https://rusiper1000.github.io/Ravencoin-Nodes/`, see `LINK_HOLDS.md` section 7 |
 | `_includes/footer.html` | `https://discordapp.com/invite/jn6uhur` | `https://discord.com/invite/jn6uhur` |
 | `_includes/footer.html` | `http://opensource.org/licenses/mit-license.php` | `https://opensource.org/license/mit` |
 | `_includes/footer.html` | `href="{{ " / " | relative_url }}"` (rendered as `/%20/`) | `href="{{ "/" | relative_url }}"` |
-| `_pages/community.md` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` |
+| `_pages/community.md` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` — replaced again later with `https://rusiper1000.github.io/Ravencoin-Nodes/`, see `LINK_HOLDS.md` section 7 |
 | `_pages/assets.md` | `https://www.okex.com` + " OKEX" | `https://www.okx.com` + " OKX" |
 | `README.md` | `https://github.com/RavenProject/ravenproject.github.io.org/issues/new` | `https://github.com/RavenProject/ravenproject.github.io/issues/new` |
 | `README.md` | `https://github.com/RavenProject/ravenproject.github.io.org/compare` | `https://github.com/RavenProject/ravenproject.github.io/compare` |
@@ -164,9 +167,9 @@ Mobile wallet support (45 files, all under `mobilewallet/support/`):
 
 * **Wallets (`_data/wallets.yml`, 22 entries)** — 4 links fixed, SimpleHold removed, RavenVault added.
 * **Mining pools (`_data/pools.yml`, 17 entries)** — 5 dead pools removed, Corepool added.
-* **Projects (`_data/projects.yml`, 16 entries)** — RavencoinHelper OS removed; RavenTrader server link fixed; RVNFT deep paths fixed; SYNTH IPFS path fixed; NOWNodes links fixed; Electrum maintained forks added; ChainStrap, KawTrace, Raven Network Nodes, RavenTag, Blackwing, Ravencoin Node Monitor and Ravencoin SDK added.
-* **Community (`_pages/community.md`)** — GetRavencoin.org card removed; Ravencoin Node Map link switched to https.
-* **Exchanges (`_data/exchanges.yml`, 32 entries)** — see section C.
+* **Projects (`_data/projects.yml`, 15 entries)** — RavencoinHelper OS removed; RavenTrader server link fixed; RVNFT deep paths fixed; SYNTH IPFS path fixed; NOWNodes links fixed; Electrum maintained forks added; ChainStrap, KawTrace, Raven Network Nodes, RavenTag, Blackwing, Ravencoin Node Monitor and Ravencoin SDK added.
+* **Community (`_pages/community.md`)** — GetRavencoin.org card removed; Ravencoin Node Map link switched to https and then repointed to the live dashboard host.
+* **Exchanges (`_data/exchanges.yml`, 31 entries)** — see section C.
 * **Buying guide (`_pages/buy-ravencoin.md`)** — restructured into three sections (section B.11).
 * **Wallet page (`_pages/wallet.md`)** — download links moved to the real `v4.7.0` release tag with matching asset names; retired app store badges removed; a second button for the maintained Electrum build added.
 * **WCC page (`_pages/wcc.md`)** — dead testnet faucet entry and section removed.
@@ -250,16 +253,21 @@ Binance, Binance TR, Binance US, Bitrue, Bittime, Bybit, BYDFi, CoinDCX, CoinSpo
 Crypto.com Exchange, Digifinex, Digitalexchange.id, Gate, Huobi, Indodax, LATOKEN, LBank, MEXC, OKX,
 Paribu, Pionex, TokoCrypto, WEEX, WhiteBIT, XT.COM, XXKK, ZebPay
 
-### C.2 Instant swap services (5)
+### C.2 Instant swap services (4)
 
-Changelly, ChangeNow, Exolix, Guardarian, Swapzone — all carry `swap: true`.
+Changelly, ChangeNow, Guardarian, Swapzone — all carry `swap: true`.
 
-### C.3 Removed from the active list (19)
+Exolix was removed in a later pass: its complete currency inventory (514 currencies, read through the
+paginated `api/v2/currencies` endpoint) contains neither `RVN` nor `RAVEN`, so the venue has no RVN
+market. See `LINK_HOLDS.md` section 7.
+
+### C.3 Removed from the active list (20)
 
 | Group | Entries | Reason |
 |---|---|---|
 | Could not be confirmed (5) | ATAIX, Qortal, tZero, FLASHIFT, NOWPayments | ATAIX still lists RVN/BTC, RVN/ETH and RVN/USDT in its own price feed but all three have volume 0, a zero last price and no ask, and neither aggregator lists the venue for RVN. Qortal runs its own chain and token and has no RVN market. tZero, FLASHIFT and NOWPayments have no RVN mention anywhere on their sites and no RVN market in either aggregator. |
 | Service paused (1) | ChangeAngel | The site answers with a "Coming Back" placeholder. |
+| No RVN market (1) | Exolix | The complete currency inventory (514 currencies) contains neither `RVN` nor `RAVEN`. Removed in a later pass, see `LINK_HOLDS.md` section 7. |
 | Could not be verified from the audit host (13) | BC Bitcoin, Bitladon, Bittrex, ChangeHero, CoinoSwap, CoinSwitch, Evorese, Graviex, ProBit, SimpleSwap, StealthEX, SwapSpace, SwapSwop | Each is blocked by a Cloudflare challenge, has an unresolvable API host, or is a client-side rendered single page app whose coin list could not be read. **None of them is stated to be permanently delisted**; the exact re-verification condition for each is written in `LINK_HOLDS.md` section 4. |
 
 ### C.4 Added in this work (3)
@@ -310,9 +318,9 @@ XXKK, Binance TR, CoinDCX — see B.5 for the evidence.
 
 ### C.8 Do the report numbers match the YAML?
 
-Yes. The current `_data/exchanges.yml` holds 32 entries: 27 with `swap` unset (spot) and 5 with
+Yes. The current `_data/exchanges.yml` holds 31 entries: 27 with `swap` unset (spot) and 4 with
 `swap: true`. The names in sections C.1 and C.2 above were read directly out of the file, and the
-19 names in C.3 were confirmed to be absent from it. A quick re-check:
+20 names in C.3 were confirmed to be absent from it. A quick re-check:
 
 ```bash
 cd ~/projects/ravenproject.github.io
@@ -391,7 +399,7 @@ All of the following were run against the current `bbb1cdb` working tree.
    files. `git show <sha>` for each of the four commits.
 2. **Check the data against the claims.** The counts in section C must be reproducible from
    `_data/exchanges.yml`; the removals must really be absent and the additions really present.
-3. **Re-verify the exchange removals.** For each of the 19 removed names, decide whether it is
+3. **Re-verify the exchange removals.** For each of the 20 removed names, decide whether it is
    (a) genuinely delisted, (b) an order-book venue that no longer lists RVN, or (c) only
    unverifiable from the audit host. Category (c) is the weakest justification for removing a
    listing; if you disagree with it, the safe move is to restore the entry and note the reason.
@@ -448,7 +456,8 @@ can actually be traded.
 - Replace a broken repository name in the README issue and compare links, the retired
   `help.github.com` setup guide and the backticks that broke the `username.github.io`
   URLs.
-- Update the Contributor Covenant, Discord, MIT license and Ravencoin Node Map links.
+- Update the Contributor Covenant, Discord, MIT license and Ravencoin Node Map links. The Node Map
+  link was repointed once more afterwards, see `LINK_HOLDS.md` section 7.
 - Fix the schema.org `u-url` in the footer, which rendered as `/%20/`.
 
 ### Mobile wallet support pages
@@ -553,10 +562,10 @@ page for the file list and confirm that the number of changed files matches 61.
 
 | File | Role |
 |---|---|
-| `LINK_HOLDS.md` | All deferred items: server errors, links left alone, removed services, the 19 removed exchanges with re-verification conditions, the venues still on hold, venues checked and not added, unused logos. Not reproduced in this document. |
-| `_data/exchanges.yml` | 32 entries, 27 spot and 5 swap. |
+| `LINK_HOLDS.md` | All deferred items: server errors, links left alone, removed services, the 20 removed exchanges with re-verification conditions, the venues still on hold, venues checked and not added, unused logos. Not reproduced in this document. |
+| `_data/exchanges.yml` | 31 entries, 27 spot and 4 swap. |
 | `_data/wallets.yml` | 22 entries. |
 | `_data/pools.yml` | 17 entries. |
-| `_data/projects.yml` | 16 entries, including ChainStrap. |
+| `_data/projects.yml` | 15 entries, including ChainStrap. |
 | `_pages/buy-ravencoin.md` | The three-section buying guide. |
 | `mobilewallet/support/` | 45 modified HTML files with corrected relative paths. |

@@ -77,13 +77,6 @@
   kyc: true
   donates_to_project: false
 
-- name: Exolix
-  logo: /assets/img/pages/exchanges/exolix.png
-  url: https://exolix.com/exchange/BTC-RVN
-  swap: true
-  kyc: false
-  donates_to_project: false
-
 - name: Gate
   url: https://www.gate.com/trade/RVN_USDT
   kyc: true

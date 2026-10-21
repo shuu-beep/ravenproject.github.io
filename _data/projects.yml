@@ -98,28 +98,6 @@
     - name: CHISEL CODEBASE
       url: https://github.com/johnrigler/chisel
 
-- name: RVNFT
-  description: >
-    RVNFT is a full service NFT Tokenization platform on the Ravencoin Blockchain Network.
-    You can create your own Artwork, Game Reward, Song, Movie, Certificate of Authenticity and much more.
-    Let RVNFT add it to the Network, so you can focus on what you do best.
-  project_sites:
-    - name: RVNFT
-      url: https://www.rvnft.art/
-    - name: RVNFT Marketplace
-      url: https://www.rvnft.art/
-    - name: RVNFT Gallery
-      url: https://www.rvnft.art/
-    - name: RVNBAY/RVNFT
-      url: https://rvnbay.com/category/rvnft/
-  social:
-    - name: RVNFT Discord
-      url: https://discord.gg/ZSqqS5Gr
-    - name: RVNFT Twitter
-      url: https://twitter.com/RVNFT_ART
-    - name: RVNFT Instagram
-      url: https://www.instagram.com/rvnft.art/
-
 - name: SYNTH
   description: >
     SYNTH is a digital guild based on the Main RVN Token which aims to augment the
@@ -291,11 +269,11 @@
     The raw measurement data is published as open JSON and CSV and needs no authentication.
   project_sites:
     - name: Node Distribution Dashboard
-      url: https://ravencoin-nodes.vercel.app
+      url: https://rusiper1000.github.io/Ravencoin-Nodes/
     - name: Latest Measurement (JSON)
-      url: https://ravencoin-nodes.vercel.app/data/latest.json
+      url: https://rusiper1000.github.io/Ravencoin-Nodes/data/latest.json
     - name: Measurement History (JSON)
-      url: https://ravencoin-nodes.vercel.app/data/history.json
+      url: https://rusiper1000.github.io/Ravencoin-Nodes/data/history.json
 
 - name: RavenTag
   description: >
