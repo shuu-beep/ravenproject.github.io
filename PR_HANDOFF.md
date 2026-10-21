@@ -154,7 +154,7 @@ Mobile wallet support (45 files, all under `mobilewallet/support/`):
 | `_includes/footer.html` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` — replaced again later with `https://rusiper1000.github.io/Ravencoin-Nodes/`, see `LINK_HOLDS.md` section 7 |
 | `_includes/footer.html` | `https://discordapp.com/invite/jn6uhur` | `https://discord.com/invite/jn6uhur` |
 | `_includes/footer.html` | `http://opensource.org/licenses/mit-license.php` | `https://opensource.org/license/mit` |
-| `_includes/footer.html` | `href="{{ " / " | relative_url }}"` (rendered as `/%20/`) | `href="{{ "/" | relative_url }}"` |
+| `_includes/footer.html` | `{% raw %}{{ " / " | relative_url }}{% endraw %}` (rendered as `/%20/`) | `{% raw %}{{ "/" | relative_url }}{% endraw %}` |
 | `_pages/community.md` | `http://www.ravennodes.com/` | `https://www.ravennodes.com/` — replaced again later with `https://rusiper1000.github.io/Ravencoin-Nodes/`, see `LINK_HOLDS.md` section 7 |
 | `_pages/assets.md` | `https://www.okex.com` + " OKEX" | `https://www.okx.com` + " OKX" |
 | `README.md` | `https://github.com/RavenProject/ravenproject.github.io.org/issues/new` | `https://github.com/RavenProject/ravenproject.github.io/issues/new` |

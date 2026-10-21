@@ -169,11 +169,12 @@ still live and were kept.
 Removing a listing leaves its logo file behind. These files are no longer referenced by any data
 file or page and can be deleted whenever convenient:
 
+- `assets/img/pages/exchanges/UnicornX.png`
 - `assets/img/pages/exchanges/ataix.png`
 - `assets/img/pages/exchanges/bcbitcoin.png`
 - `assets/img/pages/exchanges/bitladon.png`
-- `assets/img/pages/exchanges/bittrex.png`
 - `assets/img/pages/exchanges/bitni.png`
+- `assets/img/pages/exchanges/bittrex.png`
 - `assets/img/pages/exchanges/bitvavo.png`
 - `assets/img/pages/exchanges/changeangel.png`
 - `assets/img/pages/exchanges/changehero.png`
@@ -191,9 +192,10 @@ file or page and can be deleted whenever convenient:
 - `assets/img/pages/exchanges/swapspace.png`
 - `assets/img/pages/exchanges/swapswop.png`
 - `assets/img/pages/exchanges/tzero.png`
-- `assets/img/pages/exchanges/UnicornX.png`
 - `assets/img/pages/exchanges/upbit.png`
+- `assets/img/pages/wallet/CoinUs.png`
 - `assets/img/pages/wallet/simplehold.png`
+- `assets/img/pages/wallet/stibits.png`
 
 The following three were already unused before this work and are only listed for completeness:
 `assets/img/pages/exchanges/coinexchange.png`, `assets/img/pages/wallet/flare.png`,
@@ -223,3 +225,44 @@ The same rule was applied to the "Ravencoin Node Monitor" entry, whose public de
 deployment (`ravencoin-node-monitor.vercel.app`) and has no GitHub Pages alternative — the
 repository `ALENOC/ravencoin-node-monitor` has Pages disabled. That link was left as it is, because
 it is not broken for real visitors.
+
+## 8. External link check
+
+Every external link that is displayed on the public pages was fetched once with certificate
+verification enabled (`curl` without `--insecure`), a 5 second timeout and at most one retry. The
+253 unique URLs of the pages as published were checked; the two documentation pages
+(`LINK_HOLDS.html` and `PR_HANDOFF.html`) were left out because they intentionally list removed and
+held venues.
+
+### Removed because the host fails the TLS handshake
+
+Four hosts accept the connection and then abort the TLS handshake, so a visitor gets a browser
+security error instead of the page. The failure was reproduced with two independent TLS stacks
+(LibreSSL 3.3.6 and OpenSSL 3.6.3), and `ssl_verify_result` was 1 in every case, so it is not a
+problem with the checking client.
+
+| Removed | Where it was | What the server does | Note |
+|---|---|---|---|
+| `https://autogamegold.com/` | `_data/platforms.yml`, the "Auto Game Gold" mining platform | Cloudflare answers the Client Hello with `tlsv1 alert internal error`; over plain HTTP it answers 503. | No working https address exists for this host. |
+| `https://jackdawtoken.com/` and `https://jackdawtoken.com/jackdaw-whitepaper` | `_data/projects.yml`, the two project sites of "Jackdaw Cryptocurrency" | The handshake fails with `SSLV3_ALERT_HANDSHAKE_FAILURE`; over plain HTTP it answers 409. | Both sites of that project were removed. The project itself is still listed through its social channels, which all answer 200. |
+| `https://www.coinus.io/` | `_data/wallets.yml`, the "CoinUs" wallet | `SSL_ERROR_SYSCALL` while reading the handshake. The host resolves and answers 200 over plain HTTP, but there is no working https address. | The wallet entry was removed. The plain HTTP address still serves the site, so it can be restored if the operator fixes TLS or if an http link is acceptable. |
+| `https://www.stibits.com/` | `_data/wallets.yml`, the "Stibits" wallet | `SSL_ERROR_SYSCALL` while reading the handshake. The host resolves and answers 200 over plain HTTP, but there is no working https address. | Same situation as CoinUs. |
+
+### Checked but not changed
+
+These answered with a status that the checking host can produce on its own, so they are recorded
+here instead of being changed or removed:
+
+| Status | URLs | Why it is not treated as a defect |
+|---|---|---|
+| 403 | `blockchain.info`, `coindcx.com`, the four `medium.com` posts, `whitebit.com`, `coingecko.com`, `exodus.com`, `gate.com`, `mexc.com`, `paribu.com` | Bot protection. The same hosts answer normally from a browser. |
+| 429 | the two `github.com/bitcoin/bips` pages | Rate limited by the parallel burst of requests. |
+| 451 | `www.digifinex.com` | Geo block, already recorded in section 2. |
+| 500 / 502 / 503 / 525 | `squawker.app`, `www.crypticwizardry.com`, `rvn-dashboard.com`, `safepay.safecoin.org`, `rvnbay.com` | Server side errors, already recorded in section 1. |
+| 999 | the three `linkedin.com` profile links | LinkedIn refuses automated requests. |
+| 400 | `www.facebook.com/groups/RavenCoinNest` | Facebook refuses automated requests. |
+| timeout | `binarylongevity.com`, `explorer.ravencoin.org`, `pool.wallstreetv2.com`, `ravencoin.flypool.org`, `rvn.bsmith.io`, `rvn.cryptoscope.io` and its transaction links | No answer within 5 seconds from the checking host. Most of them are already listed in sections 1 and 4. |
+| DNS failure | `raven-nightly-builds.ravencoin.org` | Did not resolve during the check but resolves again on a second attempt, so it is a transient resolver problem. Already listed in section 1. |
+
+The two Discord invite links timed out during the parallel pass but answered 200 on a single
+follow-up request, so they were left unchanged.

@@ -137,13 +137,6 @@
     - linux
     - world-wide-web
 
-- name: Stibits
-  logo: /assets/img/pages/wallet/stibits.png
-  url: https://www.stibits.com/
-  asset-support: true
-  platforms:
-    - app-store-badge
-    - google-play-badge
 
 - name: Trust
   logo: /assets/img/pages/wallet/trust.png
@@ -171,14 +164,6 @@
     - windows
     - mac
     - linux
-
-- name: CoinUs
-  logo: /assets/img/pages/wallet/CoinUs.png
-  url: https://www.coinus.io/
-  asset-support: true
-  platforms:
-    - app-store-badge
-    - google-play-badge
 
 - name: RavenVault
   logo: /assets/img/pages/wallet/ravenvault.png
