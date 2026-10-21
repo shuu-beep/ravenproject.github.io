@@ -46,7 +46,7 @@ evidence that a service is gone, so the links were left untouched. Re-check befo
 | E9 | `https://explorer.ravencoin.org/block/0000000000004a7a699167d242dad3e18271cb9b75fdab9fe749291d9c59305d` | 522 | `_pages/halving.md` |
 | E10 | `https://raven-nightly-builds.ravencoin.org` | 522 | `_pages/wcc.md` |
 | E11 | `https://api.ravencoin.org` | 522 | `mobilewallet/support/Troubleshooting/Ravencoin-missing.html` |
-| E12 | `https://jackdawtoken.com/` | 409 over plain HTTP, no TLS handshake on 443 | `_data/projects.yml` (Jackdaw Cryptocurrency) — the domain still resolves to Cloudflare, so the origin is refusing requests. The links were left as they are; re-check before changing. |
+| E12 | `https://jackdawtoken.com/` | 409 over plain HTTP, no TLS handshake on 443 | `_data/projects.yml` (Jackdaw Cryptocurrency) — the domain still resolves to Cloudflare, so the origin is refusing requests. Both of the project's site links were removed later, see section 8. |
 
 ## 2. Working links that were left alone
 
